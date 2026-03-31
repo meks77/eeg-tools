@@ -1,0 +1,47 @@
+# EEG Tools
+
+## Erscheinungsbild
+
+Die Applikation soll eine Webapplikation sein. Sie soll optimiert für diverse Bildschirmgrößen sein. Darunter fallen Handy, Tablets, Laptops und größere Monitore.
+
+Das Layout bzw. Design soll so gestaltet sein, dass es zur Homepage der Hill EEG(https://www.hill-stromeeg.at) passt.
+
+## Funktionalitäten
+
+### Einfache Berechnung der Ersparnis für Verbraucher
+
+Die Benutzer:in hat eine einfache Eingabemöglichkeit für
+
+* den jährlichen Energiebedarfs
+* den Arbeitspreis pro kw/h inkl. Steuer beim aktuellen Stromlieferanten
+* die typischen Anwesenheitszeiten Zuhause(Ganztags, Vormittags, Nachmittags, Abends)
+
+Aufgrund der Anwesenheitszeiten soll die prozentuelle Abdeckung mit EEG-Strom automatisch angepasst werden. Die prozentuelle Abdeckung je nach Anwesenheit, wird statistisch mit aufgrund von bestehenden Benutzern erhoben, und für die Berechnungsbasis bereitgestellt.
+
+Die Benutzer:in hat die Möglichkeit die prozentuele Abdeckung direkt einzugeben, und die Vorbelegung dadurch zu übersteuern.
+
+Mit diesen Eingaben soll die Ersparnis berechnet werden, welche durch den Bezug des Strom aus der EEG erzielt wird. Dabei ist zu berücksichtigen dass auch eine Mitgliedsgebühr von 10 Euro, und eine Einschreibgebühr von 15 Euro anfällt. Daher wäre es sinnvoll die Ersparnis im ersten und im zweiten Jahr auszuweisen. Der Preis für die kw/h bei der EEG ist aktuell 10 Cent. Es soll außerdem auch noch die Ersparnis der Netzgebühr und sonstiger Abgaben berücksichtigt werden, welche bei einer regionalen EEG eingespart werden können. Die Kosten bei der EEG sollen einzeln (z.B. Netzgebühr, Ökostromabgabe, etc.) aufgelistet werden, und den Kosten bei dem aktuellen Stromanbieter gegenüber gestellt werden. Des weiteren sollen die Ersparnisse bzw. Mehrausgaben angeführt werden.
+
+## Technik
+
+Die Applikation soll eine serverless Webanwendung sein. Als Technologie fÜr die dynamische Webseite soll entweder
+
+* eine Single Page Application mit einem populäre Framework sein, oder
+* eine simple Seite mit Hilfe von W3CSS und JS-Komponenten sein, oder
+* eine Kotlin Multiplatform Applikation
+
+sein.
+
+### Testkonzept
+
+Die Applikation soll automatisiert betestbar sein. Die Fachlichkeit soll mit einfachen und schnellen Tests betestet werden.
+
+Idealerweise wird hier Specification By Example angewendet.
+
+Das UI soll auch automatisiert betestet werden. Idealerweise wird auch das Layout für die unterschiedlichen Bildschirmgrößen betestet, falls das möglich ist.
+
+### Infrastruktur
+
+Als Repository dient Github. Der Build und die Tests sollen mit Github Actions durchgeführt werden.
+
+Es wird ein Branching-Modell benötigt, damit Features, nachdem sie erfolgreich gebuildet und betestet wurden, released und in Github Pages deployed werden können.
