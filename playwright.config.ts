@@ -26,7 +26,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: './gradlew jsBrowserRun --no-daemon',
+    command: process.env.CI ? 'npx serve build/dist/js/productionExecutable -l 8080' : './gradlew jsBrowserRun --no-daemon',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
