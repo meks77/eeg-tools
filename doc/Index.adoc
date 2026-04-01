@@ -24,24 +24,30 @@ Mit diesen Eingaben soll die Ersparnis berechnet werden, welche durch den Bezug 
 
 ## Technik
 
-Die Applikation soll eine serverless Webanwendung sein. Als Technologie fÜr die dynamische Webseite soll entweder
+Die Applikation ist eine serverless Webanwendung, die auf GitHub Pages gehostet wird.
 
-* eine Single Page Application mit einem populäre Framework sein, oder
-* eine simple Seite mit Hilfe von W3CSS und JS-Komponenten sein, oder
-* eine Kotlin Multiplatform Applikation
-
-sein.
+* **Sprache:** Kotlin
+* **Framework:** [Compose HTML](https://github.com/JetBrains/compose-jb) (Kotlin Multiplatform)
+* **Styling:** Tailwind CSS (für Responsive Design)
+* **Build-Tool:** Gradle
+* **Hosting:** GitHub Pages
 
 ### Testkonzept
 
-Die Applikation soll automatisiert betestbar sein. Die Fachlichkeit soll mit einfachen und schnellen Tests betestet werden.
+Die Applikation wird auf verschiedenen Ebenen automatisiert betestet:
 
-Idealerweise wird hier Specification By Example angewendet.
+1. **Fachlichkeit (Logic):**
+   * **Technologie:** [Kotest](https://kotest.io/)
+   * **Methodik:** Specification By Example (Given/When/Then)
+   * **Scope:** Schnelle Tests der Berechnungslogik in `commonMain`.
 
-Das UI soll auch automatisiert betestet werden. Idealerweise wird auch das Layout für die unterschiedlichen Bildschirmgrößen betestet, falls das möglich ist.
+2. **UI & Responsive Design:**
+   * **Technologie:** [Playwright](https://playwright.dev/)
+   * **Scope:** E2E-Tests in verschiedenen Browsern (Chromium, Webkit) und Viewports (Mobile, Desktop).
+   * **Layout-Tests:** Automatisierte Checks für unterschiedliche Bildschirmgrößen.
 
 ### Infrastruktur
 
-Als Repository dient Github. Der Build und die Tests sollen mit Github Actions durchgeführt werden.
-
-Es wird ein Branching-Modell benötigt, damit Features, nachdem sie erfolgreich gebuildet und betestet wurden, released und in Github Pages deployed werden können.
+* **Repository:** GitHub
+* **CI/CD:** GitHub Actions (`.github/workflows/deploy.yml`)
+* **Deployment:** Automatisches Deployment auf GitHub Pages bei jedem Push auf den `main`-Branch.
