@@ -29,6 +29,6 @@ export default defineConfig({
     command: process.env.CI ? 'npx serve build/dist/js/productionExecutable -l 8080' : './gradlew jsBrowserRun --no-daemon',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 180 * 1000,
   },
 });
