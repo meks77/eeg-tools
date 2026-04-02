@@ -38,8 +38,9 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run E2E tests
         run: |
-          find build -maxdepth 4 -ls
-          npx playwright test
+          ls -la tests-e2e
+          npx playwright test --list
+          npx playwright test --config playwright.config.ts
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
