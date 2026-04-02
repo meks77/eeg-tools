@@ -18,11 +18,26 @@ class SavingCalculatorTest {
             aktuellerPreisProKwh = aktuellerPreis,
             abdeckungProzent = abdeckung
         )
-        val erwarteteBruttoErsparnis = 78.0 // energiebedarf * abdeckung * (aktuellerPreis - 0.10)
-        val erwarteteNettoErsparnisJahr1 = 53.0 // 78 - Einschreibgebühr(15) - Mitgliedsgebühr(10)
-        val erwarteteNettoErsparnisJahr2 = 68.0 // 78 - Mitgliedsgebühr(10)
-        assertEquals(erwarteteBruttoErsparnis, result.bruttoErsparnis, "Die Brutto-Ersparnis sollte 300 Euro betragen")
-        assertEquals(erwarteteNettoErsparnisJahr1, result.nettoErsparnisJahr1, "Die Netto-Ersparnis im 1. Jahr sollte 53 Euro betragen")
-        assertEquals(erwarteteNettoErsparnisJahr2, result.nettoErsparnisJahr2, "Die Netto-Ersparnis im 2. Jahr sollte 68 Euro betragen")
+        val erwarteteBruttoErsparnis = 1200.0 * (0.165 - 0.10) // 78.0
+        val erwarteteNetznutzungErsparnis = 1200.0 * (2.952 / 100.0) // 35.424
+        val erwarteteElektrizitaetsabgabeErsparnis = 1200.0 * (0.1 / 100.0) // 1.2
+        val erwarteteFoerderbeitragNetznutzungErsparnis = 1200.0 * (0.583 / 100.0) // 6.996
+        val erwarteteFoerderbeitragNetzverlustErsparnis = 1200.0 * (0.037 / 100.0) // 0.444
+        
+        val erwarteteGesamtErsparnis = erwarteteBruttoErsparnis + erwarteteNetznutzungErsparnis + 
+                erwarteteElektrizitaetsabgabeErsparnis + erwarteteFoerderbeitragNetznutzungErsparnis + 
+                erwarteteFoerderbeitragNetzverlustErsparnis // 78 + 35.424 + 1.2 + 6.996 + 0.444 = 122.064
+        
+        val erwarteteNettoErsparnisJahr1 = erwarteteGesamtErsparnis - 15.0 - 10.0 // 97.064
+        val erwarteteNettoErsparnisJahr2 = erwarteteGesamtErsparnis - 10.0 // 112.064
+
+        assertEquals(erwarteteBruttoErsparnis, result.bruttoErsparnis, 0.001)
+        assertEquals(erwarteteNetznutzungErsparnis, result.netznutzungErsparnis, 0.001)
+        assertEquals(erwarteteElektrizitaetsabgabeErsparnis, result.elektrizitaetsabgabeErsparnis, 0.001)
+        assertEquals(erwarteteFoerderbeitragNetznutzungErsparnis, result.foerderbeitragNetznutzungErsparnis, 0.001)
+        assertEquals(erwarteteFoerderbeitragNetzverlustErsparnis, result.foerderbeitragNetzverlustErsparnis, 0.001)
+        assertEquals(erwarteteGesamtErsparnis, result.gesamtErsparnis, 0.001)
+        assertEquals(erwarteteNettoErsparnisJahr1, result.nettoErsparnisJahr1, 0.001)
+        assertEquals(erwarteteNettoErsparnisJahr2, result.nettoErsparnisJahr2, 0.001)
     }
 }

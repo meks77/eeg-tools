@@ -44,7 +44,14 @@ fun CalculatorPage() {
             // Results section
             Div({ classes("results-section") }) {
                 H3 { Text("Ihre Ersparnis") }
-                ResultRow("Brutto Ersparnis / Jahr", result.bruttoErsparnis)
+                ResultRow("Energiekosten / Jahr", result.bruttoErsparnis)
+                ResultRow("Netznutzung / Jahr", result.netznutzungErsparnis)
+                ResultRow("Elektrizitätsabgabe / Jahr", result.elektrizitaetsabgabeErsparnis)
+                ResultRow("Ern.-Förderbeitrag Netznutzung / Jahr", result.foerderbeitragNetznutzungErsparnis)
+                ResultRow("Ern.-Förderbeitrag Netzverlust / Jahr", result.foerderbeitragNetzverlustErsparnis)
+                
+                Hr()
+                ResultRow("Gesamt Ersparnis / Jahr", result.gesamtErsparnis)
                 ResultRow("Mitgliedsgebühr / Jahr", result.mitgliedsgebuehr)
                 ResultRow("Einschreibegebühr (einmalig)", result.einschreibegebuehr)
                 
