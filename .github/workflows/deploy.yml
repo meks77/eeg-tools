@@ -28,11 +28,11 @@ jobs:
         with:
           gradle-version: wrapper
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
-          generate-job-summary: true
+          add-job-summary: true
           # Hier werden die Key-Elemente für den Cache definiert
           # Falls Gradle 9.4.1 immer noch heruntergeladen wird,
           # erzwingen wir die Prüfung der Wrapper-Prüfsumme.
-          add-job-summary-as-pr-comment: false
+          add-job-summary-as-pr-comment: never
       - name: Build and Test
         run: ./gradlew jsBrowserDistribution --build-cache --info
       - name: Install Node.js
