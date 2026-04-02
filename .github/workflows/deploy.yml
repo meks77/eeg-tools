@@ -26,7 +26,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: Build and Test
-        run: ./gradlew jsBrowserProductionWebpack
+        run: ./gradlew jsBrowserDistribution
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,7 +38,7 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run E2E tests
         run: |
-          ls -R build/dist/js/productionExecutable
+          find build -maxdepth 4 -ls
           npx playwright test
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
