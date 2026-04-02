@@ -24,11 +24,17 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
+          gradle-version: wrapper
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          generate-job-summary: true
+          # Hier werden die Key-Elemente für den Cache definiert
+          # Falls Gradle 9.4.1 immer noch heruntergeladen wird,
+          # erzwingen wir die Prüfung der Wrapper-Prüfsumme.
+          add-job-summary-as-pr-comment: false
       - name: Build and Test
-        run: ./gradlew jsBrowserDistribution
+        run: ./gradlew jsBrowserDistribution --build-cache --info
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
