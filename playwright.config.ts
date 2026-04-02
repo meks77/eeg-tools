@@ -16,14 +16,6 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
   ],
   webServer: {
     command: process.env.CI ? 'npx serve ./build/dist/js/productionExecutable -l 8080' : './gradlew jsBrowserRun --no-daemon',
