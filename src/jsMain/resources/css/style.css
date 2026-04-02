@@ -72,15 +72,31 @@ label {
 .result-row {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     margin-bottom: 10px;
+    gap: 10px;
+}
+
+.result-row span:last-child {
+    white-space: nowrap;
+    text-align: right;
+    flex-shrink: 0;
 }
 
 .net-result {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     font-weight: bold;
     font-size: 1.1em;
     margin-top: 15px;
+    gap: 10px;
+}
+
+.net-result span:last-child {
+    white-space: nowrap;
+    text-align: right;
+    flex-shrink: 0;
 }
 
 .highlight {

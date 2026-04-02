@@ -47,8 +47,8 @@ fun CalculatorPage() {
                 ResultRow("Energiekosten / Jahr", result.bruttoErsparnis)
                 ResultRow("Netznutzung / Jahr", result.netznutzungErsparnis)
                 ResultRow("Elektrizitätsabgabe / Jahr", result.elektrizitaetsabgabeErsparnis)
-                ResultRow("Ern.-Förderbeitrag Netznutzung / Jahr", result.foerderbeitragNetznutzungErsparnis)
-                ResultRow("Ern.-Förderbeitrag Netzverlust / Jahr", result.foerderbeitragNetzverlustErsparnis)
+                ResultRow("Ern. Förderbeitrag (NN) / Jahr", result.foerderbeitragNetznutzungErsparnis)
+                ResultRow("Ern. Förderbeitrag (NV) / Jahr", result.foerderbeitragNetzverlustErsparnis)
                 
                 Hr()
                 ResultRow("Gesamt Ersparnis / Jahr", result.gesamtErsparnis)
