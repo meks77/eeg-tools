@@ -27,7 +27,6 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
-          gradle-home-cache-cleanup: true
       - name: Build and Test
         run: ./gradlew jsBrowserDistribution
       - name: Install Node.js
