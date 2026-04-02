@@ -8,8 +8,8 @@ import org.jetbrains.compose.web.dom.*
 @Composable
 fun CalculatorPage() {
     var energiebedarfKwh by remember { mutableStateOf(3500.0) }
-    var aktuellerPreisProKwh by remember { mutableStateOf(0.25) }
-    var eegPreisProKwh by remember { mutableStateOf(0.12) }
+    var aktuellerPreisProKwh by remember { mutableStateOf(0.1629) }
+    var eegPreisProKwh by remember { mutableStateOf(0.10) }
     var abdeckungProzent by remember { mutableStateOf(0.30) }
 
     val calculator = SavingCalculator()
